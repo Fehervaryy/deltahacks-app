@@ -1,20 +1,60 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { NavigationContainer } from '@react-navigation/native';
 
-export default function App() {
+const Tab = createBottomTabNavigator();
+
+const Screen1 = () => (
+  <View style={styles.screenContainer}>
+    <Text>Screen 1</Text>
+  </View>
+);
+
+const Screen2 = () => (
+  <View style={styles.screenContainer}>
+    <Text>Screen 2</Text>
+  </View>
+);
+
+const Screen3 = () => (
+  <View style={styles.screenContainer}>
+    <Text>Screen 3</Text>
+  </View>
+);
+
+const Screen4 = () => (
+  <View style={styles.screenContainer}>
+    <Text>Screen 4</Text>
+  </View>
+);
+
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Tab.Navigator
+        tabBarOptions={{
+          activeTintColor: '#3498db',
+          inactiveTintColor: '#bdc3c7',
+          style: {
+            backgroundColor: '#ecf0f1',
+          },
+        }}>
+        <Tab.Screen name="Screen1" component={Screen1} />
+        <Tab.Screen name="Screen2" component={Screen2} />
+        <Tab.Screen name="Screen3" component={Screen3} />
+        <Tab.Screen name="Screen4" component={Screen4} />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
-}
+};
 
 const styles = StyleSheet.create({
-  container: {
+  screenContainer: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
     justifyContent: 'center',
+    alignItems: 'center',
   },
 });
+
+export default App;
