@@ -1,60 +1,51 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { Home } from './Home.js';
+import { Chores } from './Chores.js';
+import { Goals } from './Goals.js';
+import { Friends } from './Friends.js';
+import SystemNavigationBar from 'react-native-system-navigation-bar';
+import { View, Text, StyleSheet, Platform, StatusBar, Appearance } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const Tab = createBottomTabNavigator();
 
-const Screen1 = () => (
-  <View style={styles.screenContainer}>
-    <Text>Screen 1</Text>
-  </View>
-);
-
-const Screen2 = () => (
-  <View style={styles.screenContainer}>
-    <Text>Screen 2</Text>
-  </View>
-);
-
-const Screen3 = () => (
-  <View style={styles.screenContainer}>
-    <Text>Screen 3</Text>
-  </View>
-);
-
-const Screen4 = () => (
-  <View style={styles.screenContainer}>
-    <Text>Screen 4</Text>
-  </View>
-);
-
 const App = () => {
+  SystemNavigationBar.setBarMode('light');
   return (
-    <NavigationContainer>
-      <Tab.Navigator
-        tabBarOptions={{
-          activeTintColor: '#3498db',
-          inactiveTintColor: '#bdc3c7',
-          style: {
-            backgroundColor: '#ecf0f1',
-          },
-        }}>
-        <Tab.Screen name="Screen1" component={Screen1} />
-        <Tab.Screen name="Screen2" component={Screen2} />
-        <Tab.Screen name="Screen3" component={Screen3} />
-        <Tab.Screen name="Screen4" component={Screen4} />
-      </Tab.Navigator>
-    </NavigationContainer>
+    <SafeAreaView style={styles.androidSafeArea}>
+      <NavigationContainer>
+        <Tab.Navigator
+          screenOptions={{
+            activeTintColor: '#3498db',
+            inactiveTintColor: '#bdc3c7',
+            "tabBarStyle": [
+              {
+                "display": "flex"
+              },
+              null
+            ],
+            style: {
+              backgroundColor: '#ecf0f1',
+            },
+          }}>
+          <Tab.Screen name="Home" component={Home} />
+          <Tab.Screen name="Chores" component={Chores} />
+          <Tab.Screen name="Goals" component={Goals} />
+          <Tab.Screen name="Friends" component={Friends} />
+        </Tab.Navigator>
+      </NavigationContainer>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
-  screenContainer: {
+  androidSafeArea: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
+    backgroundColor: "white",
+    paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0
+  }
 });
 
 export default App;
