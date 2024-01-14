@@ -2,6 +2,7 @@ import React from 'react';
 import { styles } from './Styles.js';
 import { View, Text, StyleSheet, Platform, StatusBar, Appearance, ScrollView, FlatList } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import BouncyCheckbox from "react-native-bouncy-checkbox";
 
 
 export const Home = () => {
@@ -15,11 +16,11 @@ export const Home = () => {
         // Add more data as needed
     ];
 
-    const friendsData = [
-        { key: '1', name: 'Friend 123123123123' },
-        { key: '2', name: 'Friend 2' },
-        { key: '3', name: 'Friend 3' },
-        { key: '4', name: 'Friend 4' },
+    const roommatesData = [
+        { key: '1', name: 'Roommate 123123123123' },
+        { key: '2', name: 'Roommate 2' },
+        { key: '3', name: 'Roommate 3' },
+        { key: '4', name: 'Roommate 4' },
         // Add more data as needed
     ];
 
@@ -32,7 +33,7 @@ export const Home = () => {
                         <Text style={styles.titleText}>Welcome back, bruh</Text>
                     </View>
                     <View style={styles.blankView}>
-                        <Text style={{fontSize: 30}}>
+                        <Text style={{ fontSize: 30 }}>
                             100ϟ
                         </Text>
                     </View>
@@ -49,8 +50,15 @@ export const Home = () => {
                         nestedScrollEnabled
                         data={choresData}
                         renderItem={({ item }) => (
-                            <View style={styles.listItem}>
-                                <Text>{item.task}</Text>
+                            <View style={styles.roommateItem}>
+                                <BouncyCheckbox
+                                    fillColor="red"
+                                    unfillColor="#FFFFFF"
+                                    text={item.task}
+                                    iconStyle={{ borderColor: "white" }}
+                                    innerIconStyle={{ borderWidth: 3 }}
+                                    onPress={(isChecked) => { }}
+                                />
                             </View>
                         )}
                         keyExtractor={(item) => item.key}
@@ -61,15 +69,22 @@ export const Home = () => {
                 {/* Third View Segment */}
                 <View style={styles.segment3}>
                     <View style={styles.headingContainer}>
-                        <Text style={styles.headingText}>Your Friends</Text>
+                        <Text style={styles.headingText}>Your Roommates</Text>
                     </View>
-                    {/* FlatList for friends goes here */}
+                    {/* FlatList for roommates goes here */}
                     <FlatList
                         nestedScrollEnabled
-                        data={friendsData}
+                        data={roommatesData}
                         renderItem={({ item }) => (
-                            <View style={styles.friendItem}>
-                                <Text>{item.name}</Text>
+                            <View style={styles.roommateItem}>
+                                <BouncyCheckbox
+                                    fillColor="red"
+                                    unfillColor="#FFFFFF"
+                                    text={item.task}
+                                    iconStyle={{ borderColor: "white" }}
+                                    innerIconStyle={{ borderWidth: 3 }}
+                                    onPress={(isChecked) => { }}
+                                />
                             </View>
                         )}
                         horizontal

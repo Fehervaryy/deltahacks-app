@@ -2,35 +2,34 @@
 import React, { useState, useEffect } from 'react';
 import { styles } from './Styles.js';
 import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
+import axios from 'axios';
 
-const LoginScreen = () => {
+export const LoginScreen = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
   const [userData, setUserData] = useState('');
     
-  // useEffect(() => {
-  //   const fetchUserData = async () => {
-  //     try {
-  //         const res = await axios.get("/register");
-  //         setBooks(res.data);
-  //     } catch(err) {
-  //         console.log(err);
-  //     }
-  // }
-  // console.log(books);
-  // fetchAllBooks();
-  // }, []);
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+          const res = await axios.get("https://41dd-130-113-151-227.ngrok-free.app/register");
+          setUserData(res.data);
+      } catch(err) {
+          console.log(err);
+      }
+  }
+  fetchUserData();
+  }, []);
 
   const handleLogin = () => {
-    // Implement your authentication logic here
-    if (username === 'demo' && password === 'password') {
-      // Successful login, navigate to the home screen
-      
-    } else {
-      // Display an error message or handle unsuccessful login
-      alert('Invalid credentials');
-    }
+    axios.post('https://41dd-130-113-151-227.ngrok-free.app/signin', { username, password })
+    .then(response => {
+        
+    })
+    .catch(error => {
+        console.log('Credentials didn\'t match');
+    });
   };
 
   return (
@@ -54,4 +53,3 @@ const LoginScreen = () => {
   );
 };
 
-export default LoginScreen;

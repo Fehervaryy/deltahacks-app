@@ -2,7 +2,7 @@ import React from 'react';
 import { styles } from './Styles.js';
 import { Home } from './Home.js';
 import { Chores } from './Chores.js';
-import { Friends } from './Friends.js';
+import { Roommates } from './Roommates.js';
 import { Profile } from './Profile.js';
 import SystemNavigationBar from 'react-native-system-navigation-bar';
 import { View, Text, StyleSheet, Platform, StatusBar, Appearance, ScrollView, FlatList} from 'react-native';
@@ -16,6 +16,8 @@ import { SignUp } from './signup.js';
 const Tab = createBottomTabNavigator();
 
 const App = () => {
+  
+
   return (
     <SafeAreaView style={styles.androidSafeArea}>
       <NavigationContainer theme={{
@@ -46,9 +48,10 @@ const App = () => {
           }}>
           <Tab.Screen name="Home" component={Home} />
           <Tab.Screen name="Chores" component={Chores} />
-          <Tab.Screen name="Friends" component={Friends} />
+          <Tab.Screen name="Roommates" component={Roommates} />
           <Tab.Screen name="Profile" component={Profile} />
-          <Tab.Screen name="Signup" component={SignUp} />
+          {/* <Tab.Screen name="Signup" component={SignUp} />
+          <Tab.Screen name="login" component={ LoginScreen } /> */}
         </Tab.Navigator>
       </NavigationContainer>
       <StatusBar barStyle='dark-content' backgroundColor="#b39e97"/>

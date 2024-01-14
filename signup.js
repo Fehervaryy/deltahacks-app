@@ -14,7 +14,7 @@ export const SignUp = () => {
 
   const handleSignup = async e => {
     try {
-      await axios.post("http://192.168.4.1:3000//register", {email, username, password});
+      await axios.post("https://41dd-130-113-151-227.ngrok-free.app/register", {email, username, password});
       console.log("pressed!");
     } catch (err) {
       console.log(err);

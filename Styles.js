@@ -19,7 +19,7 @@ export const styles = StyleSheet.create({
     segment1: {
         flexDirection: 'row',
         marginBottom: 20,
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
         alignItems: 'center',
         backgroundColor: '#b39e97',
         borderBottomColor: '#918d8e',
@@ -76,7 +76,7 @@ export const styles = StyleSheet.create({
         padding: 10,
         height: 90,
     },
-    friendItem: {
+    roommateItem: {
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'lightgreen',
