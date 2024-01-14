@@ -27,12 +27,14 @@ export const styles = StyleSheet.create({
     },
     segment2: {
         marginBottom: 20,
+        borderBottomColor: '#918d8e',
+        borderBottomWidth: 5,
     },
     segment3: {
         marginBottom: 20,
     },
     titleContainer: {
-        marginLeft: 10,
+        marginHorizontal: 10,
         justifyContent: 'space-between',
         alignItems: 'flex-start',
         flex: 3,
@@ -41,8 +43,11 @@ export const styles = StyleSheet.create({
         fontSize: 42,
         fontWeight: 'bold',
         textAlign: 'left',
+        marginBottom: 10,
     },
     blankView: {
+        justifyContent: 'center',
+        alignItems: 'center',
         marginRight: 10,
         backgroundColor: 'lightgray',
         width: 100, // Set a fixed width for the blank view
@@ -56,16 +61,20 @@ export const styles = StyleSheet.create({
         marginBottom: 10,
     },
     headingText: {
-        fontSize: 18,
+        marginLeft: 10,
+        fontSize: 24,
         fontWeight: 'bold',
     },
     listItem: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: 'lightblue',
+        justifyContent: 'flex-start',
+        alignItems: 'flex-start',
+        backgroundColor: '#4C6444',
+        borderRadius: 10,
+        borderColor: '#917467',
         margin: 5,
         padding: 10,
+        height: 90,
     },
     friendItem: {
         justifyContent: 'center',
@@ -73,6 +82,8 @@ export const styles = StyleSheet.create({
         backgroundColor: 'lightgreen',
         padding: 10,
         marginRight: 10,
+        borderRadius: 10,
+        height: 90,
     },
     loginContainer: {
         flex: 1,
