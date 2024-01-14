@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Platform, StatusBar, Appearance } from 'react-n
 export const styles = StyleSheet.create({
     androidSafeArea: {
         flex: 1,
-        backgroundColor: "#bfaca4",
+        backgroundColor: "#b39e97",
         paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0
     },
     screenContainer: {
@@ -21,9 +21,9 @@ export const styles = StyleSheet.create({
         marginBottom: 20,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#917467',
+        backgroundColor: '#b39e97',
         borderBottomColor: '#918d8e',
-        borderBottomWidth: 3,
+        borderBottomWidth: 5,
     },
     segment2: {
         marginBottom: 20,
@@ -73,5 +73,23 @@ export const styles = StyleSheet.create({
         backgroundColor: 'lightgreen',
         padding: 10,
         marginRight: 10,
+    },
+    loginContainer: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        padding: 16,
+    },
+    loginTitle: {
+        fontSize: 36,
+        marginBottom: 24,
+    },
+    loginInput: {
+        height: 40,
+        width: '100%',
+        borderColor: 'gray',
+        borderWidth: 1,
+        marginBottom: 16,
+        padding: 8,
     },
 });

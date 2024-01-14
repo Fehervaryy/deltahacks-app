@@ -10,6 +10,8 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import SegmentedControl from '@react-native-segmented-control/segmented-control';
+import { LoginScreen } from './login.js';
+import { SignUp } from './signup.js';
 
 const Tab = createBottomTabNavigator();
 
@@ -46,9 +48,10 @@ const App = () => {
           <Tab.Screen name="Chores" component={Chores} />
           <Tab.Screen name="Friends" component={Friends} />
           <Tab.Screen name="Profile" component={Profile} />
+          <Tab.Screen name="Signup" component={SignUp} />
         </Tab.Navigator>
       </NavigationContainer>
-      <StatusBar barStyle='dark-content' backgroundColor="#bfaca4"/>
+      <StatusBar barStyle='dark-content' backgroundColor="#b39e97"/>
     </SafeAreaView>
   );
 };
