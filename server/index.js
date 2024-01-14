@@ -18,19 +18,19 @@ const db = mysql.createConnection({
   database: "deltahacks-demo"
 }) 
 
-// app.get("/register", (req, res) => {
-//   const q = "SELECT * FROM password"
-//   db.query(q, (err, data) => {
-//       if (err) {
-//           return res.json(err)
-//       } else {
-//           return res.json(data)
-//       }
-//   })
-// })
-
 app.get("/register", (req, res) => {
   const q = "SELECT * FROM users"
+  db.query(q, (err, data) => {
+      if (err) {
+          return res.json(err)
+      } else {
+          return res.json(data)
+      }
+  })
+})
+
+app.get("/chores", (req, res) => {
+  const q = "SELECT * FROM chores"
   db.query(q, (err, data) => {
       if (err) {
           return res.json(err)
@@ -45,7 +45,6 @@ app.post('/register', async (req, res) => {
   const { username, email, password } = req.body;
   const hashedPassword = await bcrypt.hash(password, 10);
 
-
   db.query("INSERT INTO users (username, email, password) VALUES (?,?,?)", 
   [username, email, hashedPassword], (err, result) => {
           if (err) return res.json(err);
@@ -55,23 +54,16 @@ app.post('/register', async (req, res) => {
   });
 });
 
-app.post('/signin', (req, res) => {
-  const { username, password } = req.body;
+app.post('/chores', async (req, res) => {
 
-  db.query('SELECT * FROM users WHERE username = ?', [username], (err, results) => {
-      if (err || results.length === 0) {
-          return res.status(401).send('No user with that username');
-      }
+  const { name, frequency, assignedto, category } = req.body;
 
-      const user = results[0];
-      bcrypt.compare(password, user.password, (err, isMatch) => {
-          if (err || !isMatch) {
-              return res.status(401).send('Password is incorrect');
-          }
+  db.query("INSERT INTO chores (name, frequency, assignedto, category) VALUES (?,?,?,?)", 
+  [name, frequency, assignedto, category], (err, result) => {
+          if (err) return res.json(err);
 
-          const token = jwt.sign({ id: user.id }, 'yourSecretKey', { expiresIn: '1h' });
-          res.status(200).json({ token });
-      });
+      console.log("this returns");
+      return res.json(result);
   });
 });
 

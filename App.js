@@ -12,6 +12,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import SegmentedControl from '@react-native-segmented-control/segmented-control';
 import { LoginScreen } from './login.js';
 import { SignUp } from './signup.js';
+import { NewChore } from './NewChore.js';
+import { Homepage } from './Homepage.js';
 
 const Tab = createBottomTabNavigator();
 
@@ -48,8 +50,9 @@ const App = () => {
           }}>
           <Tab.Screen name="Home" component={Home} />
           <Tab.Screen name="Chores" component={Chores} />
+          <Tab.Screen name="NEW" component={NewChore} />
           <Tab.Screen name="Roommates" component={Roommates} />
-          <Tab.Screen name="Profile" component={Profile} />
+          <Tab.Screen name="Profile" component={Homepage} />
           {/* <Tab.Screen name="Signup" component={SignUp} />
           <Tab.Screen name="login" component={ LoginScreen } /> */}
         </Tab.Navigator>

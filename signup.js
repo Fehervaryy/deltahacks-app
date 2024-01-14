@@ -14,7 +14,7 @@ export const SignUp = () => {
 
   const handleSignup = async e => {
     try {
-      await axios.post("https://41dd-130-113-151-227.ngrok-free.app/register", {email, username, password});
+      await axios.post("https://ab00-130-113-151-227.ngrok-free.app/register", {email, username, password});
       console.log("pressed!");
     } catch (err) {
       console.log(err);
@@ -23,7 +23,7 @@ export const SignUp = () => {
 
   return (
     <View style={{alignSelf: 'center', justifyContent: 'center', marginTop: 80}}>
-      <Text style={styles.title}>Login</Text>
+      <Text style={styles.title}>Refine</Text>
       <TextInput
         style={styles.input}
         placeholder="Username"

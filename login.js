@@ -4,6 +4,8 @@ import { styles } from './Styles.js';
 import { View, Text, TextInput, Button, StyleSheet } from 'react-native';
 import axios from 'axios';
 
+
+
 export const LoginScreen = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -13,7 +15,7 @@ export const LoginScreen = () => {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-          const res = await axios.get("https://41dd-130-113-151-227.ngrok-free.app/register");
+          const res = await axios.get("https://ab00-130-113-151-227.ngrok-free.app/register");
           setUserData(res.data);
       } catch(err) {
           console.log(err);
