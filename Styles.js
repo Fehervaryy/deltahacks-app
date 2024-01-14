@@ -46,7 +46,7 @@ export const styles = StyleSheet.create({
         marginRight: 10,
         backgroundColor: 'lightgray',
         width: 100, // Set a fixed width for the blank view
-        height: 100, // Set a fixed height for the blank view
+        height: 110, // Set a fixed height for the blank view
         alignSelf: 'right', // Align to the right
         flex: 1,
         padding: 15,

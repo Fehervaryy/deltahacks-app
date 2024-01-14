@@ -1,7 +1,7 @@
 import React from 'react';
 import { styles } from './Styles.js';
 import { View, Text, StyleSheet, Platform, StatusBar, Appearance, ScrollView, FlatList } from 'react-native';
-import { Surface, Title, Paragraph } from 'react-native-paper';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 
 export const Home = () => {
@@ -22,11 +22,11 @@ export const Home = () => {
     ];
 
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
             {/* First View Segment */}
             <View style={styles.segment1}>
                 <View style={styles.titleContainer}>
-                    <Text style={styles.titleText}>Welcome back, daddy</Text>
+                    <Text style={styles.titleText}>Welcome back, daddykajdhsflakjsdfhalskdjfh</Text>
                 </View>
                 <View style={styles.blankView}>
                     <Text>
@@ -71,6 +71,6 @@ export const Home = () => {
                     showsHorizontalScrollIndicator={false}
                 />
             </View>
-        </View>
+        </SafeAreaView>
     );
 };
